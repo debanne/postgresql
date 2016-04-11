@@ -42,7 +42,6 @@ else
   # useful if it weren't saved as clear text in Chef Server for later
   # retrieval.
   node.set_unless['postgresql']['password']['postgres'] = secure_password
-  node.save
 end
 
 # Include the right "family" recipe for installing the server
