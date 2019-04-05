@@ -44,14 +44,15 @@ This resource installs PostgreSQL client packages.
 
 #### Properties
 
-Name                | Types             | Description                                                   | Default                                   | Required?
-------------------- | ----------------- | ------------------------------------------------------------- | ----------------------------------------- | ---------
-`version`           | String            | Version of PostgreSQL to install                              | '9.6'                                     | no
-`setup_repo`        | Boolean           | Define if you want to add the PostgreSQL repo                 | true                                      | no
-`hba_file`          | String            |                                                               | `#{conf_dir}/main/pg_hba.conf`            | no
-`ident_file`        | String            |                                                               | `#{conf_dir}/main/pg_ident.conf`          | no
-`external_pid_file` | String            |                                                               | `/var/run/postgresql/#{version}-main.pid` | no
-`password`          | String, nil       | Pass in a password, or have the cookbook generate one for you | <random string>                                | no
+Name                   | Types             | Description                                                   | Default                                   | Required?
+---------------------- | ----------------- | ------------------------------------------------------------- | ----------------------------------------- | ---------
+`version`              | String            | Version of PostgreSQL to install                              | '9.6'                                     | no
+`setup_repo`           | Boolean           | Define if you want to add the PostgreSQL repo                 | true                                      | no
+`yum_gpg_key_checksum` | String            | Checksum of the yum repo key                                  | nil                                       | no
+`hba_file`             | String            |                                                               | `#{conf_dir}/main/pg_hba.conf`            | no
+`ident_file`           | String            |                                                               | `#{conf_dir}/main/pg_ident.conf`          | no
+`external_pid_file`    | String            |                                                               | `/var/run/postgresql/#{version}-main.pid` | no
+`password`             | String, nil       | Pass in a password, or have the cookbook generate one for you | <random string>                           | no
 
 #### Examples
 
@@ -74,16 +75,17 @@ This resource installs PostgreSQL client and server packages.
 
 #### Properties
 
-Name                | Types           | Description                                   | Default                                            | Required?
-------------------- | --------------- | --------------------------------------------- | -------------------------------------------------- | ---------
-`version`           | String          | Version of PostgreSQL to install              | '9.6'                                              | no
-`setup_repo`        | Boolean         | Define if you want to add the PostgreSQL repo | true                                               | no
-`hba_file`          | String          | Path of pg_hba.conf file                      | `<default_os_path>/pg_hba.conf'`                   | no
-`ident_file`        | String          | Path of pg_ident.conf file                    | `<default_os_path>/pg_ident.conf`                  | no
-`external_pid_file` | String          | Path of PID file                              | `/var/run/postgresql/<version>-main.pid</version>` | no
-`password`          | String, nil     | Set PostgreSQL user password                  | 'generate'                                         | no
-`port`              | Integer         | Set listen port of PostgreSQL service         | 5432                                               | no
-`initdb_locale`     | String          | Locale to initialise the database with        | 'C'                                                | no
+Name                   | Types           | Description                                   | Default                                            | Required?
+---------------------- | --------------- | --------------------------------------------- | -------------------------------------------------- | ---------
+`version`              | String          | Version of PostgreSQL to install              | '9.6'                                              | no
+`setup_repo`           | Boolean         | Define if you want to add the PostgreSQL repo | true                                               | no
+`yum_gpg_key_checksum` | String          | Checksum of the yum repo key                  | nil                                                | no
+`hba_file`             | String          | Path of pg_hba.conf file                      | `<default_os_path>/pg_hba.conf'`                   | no
+`ident_file`           | String          | Path of pg_ident.conf file                    | `<default_os_path>/pg_ident.conf`                  | no
+`external_pid_file`    | String          | Path of PID file                              | `/var/run/postgresql/<version>-main.pid</version>` | no
+`password`             | String, nil     | Set PostgreSQL user password                  | 'generate'                                         | no
+`port`                 | Integer         | Set listen port of PostgreSQL service         | 5432                                               | no
+`initdb_locale`        | String          | Locale to initialise the database with        | 'C'                                                | no
 
 #### Examples
 

@@ -16,12 +16,14 @@
 # limitations under the License.
 #
 
-property :version,    String, default: '9.6'
-property :setup_repo, [true, false], default: true
+property :version,              String, default: '9.6'
+property :setup_repo,           [true, false], default: true
+property :yum_gpg_key_checksum, String
 
 action :install do
   postgresql_repository 'Add downloads.postgresql.org repository' do
     version new_resource.version
+    yum_gpg_key_checksum new_resource.yum_gpg_key_checksum
     only_if { new_resource.setup_repo }
   end
 
